@@ -3,7 +3,6 @@ import bcrypt
 import hashlib
 import binascii
 from flask import jsonify, request
-from app.src.common.auth import Auth
 
 
 class Singleton(type):
