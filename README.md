@@ -1,7 +1,6 @@
 # python-session-redis
 
-This api was developed with python 3.5, using flask microframework and redis as database to store sessions. 
-This use JWT to manage session.
+This api was developed with python 3.5, using flask microframework and redis as database to store sessions and using JWT to manage sessions. 
 
 # Funcionalities
  * Register user
@@ -15,6 +14,4 @@ This use JWT to manage session.
  * One private endpoint for the user
  * One private endpoint for the admin
 
-# Todos
- * Unit test
- * Api doc
+
