@@ -4,13 +4,13 @@ from app.src.exceptions.errors import AuthenticationError
 
 class ManageUser(object):
 
-	def signup(self, signupStrategy: SignupStrategy, data):	
+	def signup(self, signupStrategy: SignupStrategy, data: dict):	
 		
 		register = signupStrategy.signup(data)
 		
 		return register
 
-	def login(self, loginStrategy: LoginStrategy, credentials) -> dict:	
+	def login(self, loginStrategy: LoginStrategy, credentials: dict) -> dict:	
 		
 		tokens = loginStrategy.login(credentials)
 
@@ -21,7 +21,7 @@ class ManageUser(object):
 
 		return tokens
 
-	def refresh(self, refreshTokenStrategy: RefreshTokenStrategy, refresh_token) -> dict:
+	def refresh(self, refreshTokenStrategy: RefreshTokenStrategy, refresh_token: str) -> dict:
 
 		tokens = refreshTokenStrategy.refresh(refresh_token)
 

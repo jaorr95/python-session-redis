@@ -9,7 +9,7 @@ class RefreshTokenAdminStrategy(RefreshTokenStrategy):
 	def refresh(self, refresh_token: str) -> dict:
 
 		session = Auth.get_session(refresh_token)
-		admin = User.query.filter_by(id=session["id"]).first()
+		admin = Admin.query.filter_by(id=session["id"]).first()
 		data = AdminCreateSchema().dump(admin)
 		tokens = Auth.update_session(refresh_token, **data)
 		

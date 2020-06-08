@@ -23,6 +23,10 @@ class LoginUserStrategy(LoginStrategy):
 			isLogged = Utils.verify_password(
 				storedUser.password[0], storedUser.password[1], credentials["password"]
 				)
+
+			if not isLogged:
+				return None
+
 			data = UserCreateSchema().dump(storedUser)
 			tokens = Auth.generate_session_token("USER", **data)
 			

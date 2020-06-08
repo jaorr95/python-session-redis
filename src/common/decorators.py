@@ -1,6 +1,7 @@
 from functools import wraps
 from flask import request
-from app.src.common.utils import Auth, Utils
+from app.src.common.utils import Utils
+from app.src.common.auth import Auth
 from app.src.exceptions.errors import InvalidTokenError
 
 
@@ -8,7 +9,7 @@ def is_authenticated(f):
 
 	@wraps(f)
 	def wrapper(*args, **kwars):
-
+		
 		token = request.headers.get("Authorization")
 		role = Utils.request_role()
 
@@ -43,12 +44,12 @@ def refresh_token(role: str):
 
 			try:
 				if not token or token.split(" ")[0] != "Bearer":
-					raise InvalidTokenError(None, token, "Token must be a bearer token", "Invalid token")
+					raise InvalidTokenError(token, "Token must be a bearer token", "Invalid token")
 				
 				exists = Auth.refresh_token_exists(token.split(" ")[1], role)
 
 				if not exists:
-					raise InvalidTokenError(None, token, "Invalid refresh token", "Invalid token")
+					raise InvalidTokenError(token, "Invalid refresh token", "Invalid token")
 
 
 			except InvalidTokenError as e:

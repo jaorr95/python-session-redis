@@ -23,6 +23,10 @@ class LoginAdminStrategy(LoginStrategy):
 			isLogged = Utils.verify_password(
 				storedAdmin.password[0], storedAdmin.password[1], credentials["password"]
 				)
+
+			if not isLogged:
+				return None
+				
 			data = AdminCreateSchema().dump(storedAdmin)
 			tokens = Auth.generate_session_token("ADMIN", **data)
 
