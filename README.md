@@ -1,5 +1,10 @@
 # python-session-redis
 
+
+
+[![codecov](https://codecov.io/gh/jaorr95/python-session-redis/branch/master/graph/badge.svg)](https://codecov.io/gh/jaorr95/python-session-redis)
+
+
 This api was developed with python 3.5, using flask microframework and redis as database to store sessions and using JWT to manage sessions. 
 
 # Funcionalities
