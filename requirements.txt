@@ -19,7 +19,7 @@ packaging==20.4
 pathlib2==2.3.5
 pkg-resources==0.0.0
 pluggy==0.13.1
-py==1.8.1
+py==1.10.0
 pycparser==2.20
 PyJWT==1.7.1
 pyparsing==2.4.7
